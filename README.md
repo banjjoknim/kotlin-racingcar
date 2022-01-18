@@ -55,3 +55,35 @@ A가 최종 우승했습니다.
 - [ ] 자동차 위치 출력
 - [ ] 우승자 찾기
 - [ ] 우승자 출력
+
+## Ktlint
+
+---
+
+### 모든 IntellJ 프로젝트에 적용하고 싶다면
+
+```shell
+./gradlew ktlintApplyToIdeaGlobally
+```
+
+### 현재 프로젝트에만 적용하고 싶다면, 프로젝트 root 경로에서 아래의 명령어를 실행한다
+
+```shell
+./gradlew ktlintApplyToIdea
+```
+
+### Git Hook 설정
+
+```shell
+# 먼저 .git 디렉토리 내에 hooks 폴더를 만들어준다(이미 존재한다면 생략).
+mkdir .git/hooks
+
+# 그리고 아래 명령어 중에서 실행한다.
+
+# style이 안맞는 부분이 있다면 commit이 안된다.
+./gradlew addKtlintCheckGitPreCommitHook
+
+# commit할 때 style이 안맞는 부분을 자동으로 수정한다.
+# 의도치 않게 파일이 수정되는 경우가 생길수 있으므로 추천하지 않는 옵션이다.
+./gradlew addKtlintFormatGitPreCommitHook
+```
