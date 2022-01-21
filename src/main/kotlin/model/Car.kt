@@ -1,3 +1,3 @@
 package model
 
-class Car(val name: String, val position: Int = 0)
+class Car(val name: Name, val position: Int = 0)
