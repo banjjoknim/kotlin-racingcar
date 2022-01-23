@@ -1,6 +1,6 @@
 package model
 
-data class CarName(var name: String) {
+data class CarName(val name: String) {
 
     init {
         require(name.isNotBlank()) { "자동차의 이름은 null 또는 공백일 수 없습니다." }
