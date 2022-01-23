@@ -1,9 +1,9 @@
 package model
 
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 
 class CarNameTest {
@@ -18,9 +18,10 @@ class CarNameTest {
             val carName = "12345"
 
             // when
+            val actual = CarName(carName)
 
             // then
-            assertDoesNotThrow { CarName(carName) }
+            assertThat(actual.value).isEqualTo("12345")
         }
 
         @Test
