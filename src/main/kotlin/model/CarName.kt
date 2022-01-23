@@ -1,10 +1,10 @@
 package model
 
-data class CarName(val name: String) {
+data class CarName(val value: String) {
 
     init {
-        require(name.isNotBlank()) { "자동차의 이름은 null 또는 공백일 수 없습니다." }
-        require(name.length <= NAME_LENGTH_LIMIT) { "자동차 이름의 길이는 5글자 이하여야 합니다." }
+        require(value.isNotBlank()) { "car name value can not be blank. value: $value" }
+        require(value.length <= NAME_LENGTH_LIMIT) { "car name value length should less than $NAME_LENGTH_LIMIT. value: $value" }
     }
 
     companion object {
