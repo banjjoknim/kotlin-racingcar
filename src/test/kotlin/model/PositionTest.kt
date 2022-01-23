@@ -5,13 +5,14 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
 
 class PositionTest {
 
     @DisplayName("위치는")
     @Nested
-    inner class PositionTests {
+    inner class CreateTests {
 
         @Test
         fun `입력값이 0일 경우 정상적으로 생성된다`() {
@@ -46,6 +47,27 @@ class PositionTest {
 
             // then
             assertThrows<IllegalArgumentException> { Position(value) }
+        }
+    }
+
+    @DisplayName("위치는 더할 시")
+    @Nested
+    inner class PlusTests {
+
+        @Test
+        fun `더한 값 만큼 값이 증가한 새로운 위치를 만든다`() {
+            // given
+            val value = 1
+            val position = Position(0)
+
+            // when
+            val actual = position.plus(value)
+
+            // then
+            assertAll(
+                { assertThat(position).isNotEqualTo(actual) },
+                { assertThat(actual.value).isEqualTo(1) }
+            )
         }
     }
 }
