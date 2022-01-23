@@ -1,9 +1,9 @@
 package controller.model
 
-data class TryCount(val tryCount: Int) {
+data class TryCount(val value: Int) {
 
     init {
-        require(tryCount > TRY_COUNT_MIN_LIMIT)
+        require(value > TRY_COUNT_MIN_LIMIT) { "TryCount value can not be zero or negative. value: $value" }
     }
 
     companion object {
