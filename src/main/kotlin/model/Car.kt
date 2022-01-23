@@ -1,12 +1,11 @@
 package model
 
-import controller.model.MoveStrategy
 import controller.model.Position
 
 class Car(val carName: CarName, var position: Position = Position(CAR_INITIAL_POSITION)) {
 
-    fun move(moveStrategy: MoveStrategy) {
-        if (moveStrategy.isMovable()) {
+    fun move(isMovableFunction: () -> Boolean) {
+        if (isMovableFunction.invoke()) {
             this.position = position.plus(CAR_MOVE_POSITION_VALUE)
         }
     }

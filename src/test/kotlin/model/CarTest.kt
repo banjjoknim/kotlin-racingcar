@@ -1,6 +1,5 @@
 package model
 
-import controller.model.MoveStrategy
 import controller.model.Position
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
@@ -51,10 +50,10 @@ class CarTest {
         @Test
         fun `이동 가능한 상태이면 위치가 1 증가한다`() {
             // given
-            val movableStrategy = MoveStrategy { true }
+            fun isMovable() = true
 
             // when
-            car.move(movableStrategy)
+            car.move { isMovable() }
 
             // then
             assertThat(car.position.value).isEqualTo(1)
@@ -63,10 +62,10 @@ class CarTest {
         @Test
         fun `이동 가능한 상태가 아니면 위치가 변하지 않는다`() {
             // given
-            val isNotMovableStrategy = MoveStrategy { false }
+            fun isMovable() = false
 
             // when
-            car.move(isNotMovableStrategy)
+            car.move { isMovable() }
 
             // then
             assertThat(car.position.value).isEqualTo(0)
