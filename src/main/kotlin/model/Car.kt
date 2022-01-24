@@ -1,7 +1,5 @@
 package model
 
-import controller.model.Position
-
 class Car(val carName: CarName, var position: Position = Position(CAR_INITIAL_POSITION)) {
 
     fun move(isMovableFunction: () -> Boolean) {

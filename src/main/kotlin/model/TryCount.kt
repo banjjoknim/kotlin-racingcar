@@ -1,4 +1,4 @@
-package controller.model
+package model
 
 data class TryCount(val value: Int) {
 

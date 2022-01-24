@@ -1,4 +1,4 @@
-package controller.model
+package model
 
 data class Position(val value: Int) {
     fun plus(value: Int): Position {
