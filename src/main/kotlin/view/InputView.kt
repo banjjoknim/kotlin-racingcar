@@ -3,7 +3,7 @@ package view
 fun inputCarNames(): String {
     pleaseInputCarNames()
     val carNames = readLine()
-    require(!carNames.isNullOrBlank())
+    require(!carNames.isNullOrBlank()) { "carNames must not be null or blank." }
     return carNames
 }
 
@@ -12,7 +12,7 @@ private fun pleaseInputCarNames() = println("경주할 자동차 이름을 입�
 fun inputTryCount(): Int {
     pleaseInputTryCount()
     val tryCount = readLine()?.toIntOrNull()
-    requireNotNull(tryCount)
+    requireNotNull(tryCount) { "tryCount must not be null or negative. tryCount: $tryCount" }
     return tryCount
 }
 
