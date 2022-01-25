@@ -13,7 +13,7 @@ class Car(val carName: CarName, var position: Position = Position(CAR_INITIAL_PO
     }
 
     companion object {
-        const val CAR_INITIAL_POSITION = 0
-        const val CAR_MOVE_POSITION_VALUE = 1
+        private const val CAR_INITIAL_POSITION = 0
+        private const val CAR_MOVE_POSITION_VALUE = 1
     }
 }
