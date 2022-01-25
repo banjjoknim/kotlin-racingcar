@@ -10,7 +10,7 @@ class CarTest {
 
     @DisplayName("자동차의 생성시")
     @Nested
-    inner class CreateTests {
+    inner class CreateCaseTests {
 
         @Test
         fun `기본적으로 최초 위치가 0이다`() {
@@ -37,7 +37,7 @@ class CarTest {
 
     @DisplayName("자동차의 이동시")
     @Nested
-    inner class MoveTests {
+    inner class MoveTestCases {
 
         private lateinit var car: Car
 
@@ -68,6 +68,37 @@ class CarTest {
 
             // then
             assertThat(car.position.value).isEqualTo(0)
+        }
+    }
+
+    @DisplayName("자동차의 위치가")
+    @Nested
+    inner class IsInTestCases {
+
+        private val car = Car(CarName("car"), Position(1))
+
+        @Test
+        fun `입력으로 주어진 위치와 동일하면 참을 반환한다`() {
+            // given
+            val position = Position(1)
+
+            // when
+            val actual = car.isIn(position)
+
+            // then
+            assertThat(actual).isTrue
+        }
+
+        @Test
+        fun `입력으로 주어진 위치와 동일하지 않으면 거짓을 반환한다`() {
+            // given
+            val position = Position(0)
+
+            // when
+            val actual = car.isIn(position)
+
+            // then
+            assertThat(actual).isFalse
         }
     }
 }

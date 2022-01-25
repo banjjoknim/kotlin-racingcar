@@ -8,6 +8,10 @@ class Car(val carName: CarName, var position: Position = Position(CAR_INITIAL_PO
         }
     }
 
+    fun isIn(position: Position): Boolean {
+        return this.position == position
+    }
+
     companion object {
         const val CAR_INITIAL_POSITION = 0
         const val CAR_MOVE_POSITION_VALUE = 1
