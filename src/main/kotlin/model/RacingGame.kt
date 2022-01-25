@@ -1,7 +1,4 @@
-package controller
-
-import model.Car
-import model.Cars
+package model
 
 class RacingGame(private val _cars: Cars) {
 

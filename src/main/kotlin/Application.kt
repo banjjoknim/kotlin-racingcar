@@ -1,7 +1,7 @@
 
-import controller.RacingGame
 import model.CarNames
 import model.Cars
+import model.RacingGame
 import model.TryCount
 import view.inputCarNames
 import view.inputTryCount
