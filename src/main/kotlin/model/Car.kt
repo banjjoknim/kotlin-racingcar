@@ -1,12 +1,5 @@
 package model
 
-import kotlin.random.Random
-
-private const val MAX_RANDOM_VALUE = 10
-private const val CAR_MOVABLE_MIN_VALUE = 4
-
-fun randomMovableFunction(): () -> Boolean = { Random.nextInt(MAX_RANDOM_VALUE) >= CAR_MOVABLE_MIN_VALUE }
-
 class Car(val carName: CarName, var position: Position = Position(CAR_INITIAL_POSITION)) {
 
     fun move(isMovableFunction: () -> Boolean) {
