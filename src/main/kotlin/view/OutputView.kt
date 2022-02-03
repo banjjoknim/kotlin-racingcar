@@ -2,6 +2,7 @@ package view
 
 import model.Car
 import model.CarRecord
+import model.CarRecords
 
 private const val CAR_POSITION_SYMBOL = "-"
 private const val WINNER_NAME_SEPARATOR = ","
@@ -11,9 +12,10 @@ fun printWinner(cars: List<Car>) {
     println("$winnerNames 이(가) 최종 우승하였습니다.")
 }
 
-fun printCarRecords(carRecords: Map<Int, List<CarRecord>>) {
-    repeat(carRecords.size) { tryCount ->
-        carRecords[tryCount]?.forEach(::printCarRecord)
+fun printCarRecords(carRecords: CarRecords) {
+    repeat(carRecords.size) { count ->
+        carRecords.getCarRecords(count)
+            .forEach(::printCarRecord)
     }
 }
 
