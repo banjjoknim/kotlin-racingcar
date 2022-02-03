@@ -6,13 +6,13 @@ class Cars(private val _cars: List<Car>) {
             .map(::Car)
     )
 
-    fun race(tryCount: TryCount, movableFunction: () -> Boolean): Map<Int, List<CarRecord>> {
+    fun race(tryCount: TryCount, movableFunction: () -> Boolean): CarRecords {
         val carRecords = mutableMapOf<Int, List<CarRecord>>()
         repeat(tryCount.value) { count ->
             _cars.forEach { car -> car.move(movableFunction) }
             carRecords[count] = _cars.createRecords()
         }
-        return carRecords
+        return CarRecords(carRecords)
     }
 
     private fun List<Car>.createRecords(): List<CarRecord> {
