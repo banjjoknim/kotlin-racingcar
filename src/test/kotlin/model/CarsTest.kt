@@ -25,10 +25,11 @@ class CarsTest {
         @Test
         fun `이동 가능한 상태가 주어진 모든 자동차가 이동한다`() {
             // given
+            val tryCount = TryCount(1)
             val isMovableFunction = { true }
 
             // when
-            cars.race(isMovableFunction)
+            cars.race(tryCount, isMovableFunction)
 
             // then
             assertAll(
@@ -41,10 +42,11 @@ class CarsTest {
         @Test
         fun `이동 가능한 상태가 주어지지 않은 모든 자동차가 이동하지 않는다`() {
             // given
+            val tryCount = TryCount(1)
             val isMovableFunction = { false }
 
             // when
-            cars.race(isMovableFunction)
+            cars.race(tryCount, isMovableFunction)
 
             // then
             assertAll(

@@ -2,16 +2,14 @@ package controller
 
 import model.Cars
 import model.TryCount
-import view.printCarsStatus
-import view.printResult
+import view.printCarRecords
+import view.printWinner
 
 class RacingGame(private val _cars: Cars, private val _tryCount: TryCount) {
     fun run(movableFunction: () -> Boolean) {
-        repeat(_tryCount.value) {
-            _cars.race(movableFunction)
-            printCarsStatus(_cars)
-        }
+        val carRecords = _cars.race(_tryCount, movableFunction)
+        printCarRecords(carRecords)
         val winners = _cars.findWinners()
-        printResult(winners)
+        printWinner(winners)
     }
 }

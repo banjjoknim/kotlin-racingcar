@@ -101,4 +101,22 @@ class CarTest {
             assertThat(actual).isFalse
         }
     }
+
+    @DisplayName("자동차의 기록은")
+    @Nested
+    inner class CreateRecordTestCases {
+
+        private val car = Car(CarName("car"), Position(1))
+
+        @Test
+        fun `자동차의 현재 상태를 그대로 가진다`() {
+            // given
+
+            // when
+            val carRecord = car.createRecord()
+
+            // then
+            assertThat(carRecord).isEqualTo(CarRecord(CarName("car"), Position(1)))
+        }
+    }
 }
