@@ -14,17 +14,17 @@ fun printGameResults(carRecords: CarRecords, winners: List<Car>) {
 }
 
 private fun List<Car>.toNamesText(): String {
-    return this.joinToString(CAR_NAME_SEPARATOR) { car -> car.carName.value }
+    return joinToString(CAR_NAME_SEPARATOR) { car -> car.carName.value }
 }
 
 private fun CarRecords.toText(): String {
-    return this.carRecords.joinToString(BLANK_LINE) { carRecords -> carRecords.toText() }
+    return carRecords.joinToString(BLANK_LINE) { carRecords -> carRecords.toText() }
 }
 
 private fun List<CarRecord>.toText(): String {
-    return this.joinToString(BLANK_LINE) { carRecord -> carRecord.toText() } + BLANK_LINE
+    return joinToString(BLANK_LINE) { carRecord -> carRecord.toText() } + BLANK_LINE
 }
 
 private fun CarRecord.toText(): String {
-    return "${this.name.value}: ${CAR_POSITION_SYMBOL.repeat(this.position.value)}"
+    return "${name.value}: ${CAR_POSITION_SYMBOL.repeat(position.value)}"
 }
